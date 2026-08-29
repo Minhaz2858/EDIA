@@ -1,0 +1,92 @@
+# EDIA domain ontology — products, price types, metrics, capabilities (bilingual markers)
+
+products:
+  isoprene:
+    name_zh: 异戊二烯
+    name_en: Isoprene
+    aliases: [异戊二烯, isoprene, IP]
+  piperylene:
+    name_zh: 间戊二烯
+    name_en: Piperylene
+    aliases: [间戊二烯, piperylene, 间戊]
+  dcpd:
+    name_zh: 双环戊二烯
+    name_en: DCPD
+    aliases: [双环戊二烯, dcpd, DCPD]
+  styrene:
+    name_zh: 苯乙烯
+    name_en: Styrene
+    aliases: [苯乙烯, styrene]
+  cracked_c5:
+    name_zh: 裂解碳五
+    name_en: Cracked C5
+    aliases: [裂解C5, 裂解碳五, 混合碳五, cracked c5, c5]
+  blowing_agent:
+    name_zh: 戊烷发泡剂
+    name_en: Pentane Blowing Agent
+    aliases: [发泡剂, 戊烷发泡剂, blowing agent]
+  c5_resin:
+    name_zh: 碳五石油树脂
+    name_en: C5 Petroleum Resin
+    aliases: [碳五石油树脂, c5树脂, c5 resin]
+
+price_types:
+  sinopec_sh:
+    label_zh: 上海石化挂牌价
+    label_en: SINOPEC Shanghai listing
+    products: [isoprene, piperylene, dcpd, styrene]
+  east_china:
+    label_zh: 华东市场价
+    label_en: East China spot
+    products: [isoprene, piperylene, dcpd, cracked_c5, blowing_agent, c5_resin]
+  brent:
+    label_zh: 布伦特原油
+    label_en: Brent crude
+    products: [crude_oil]
+
+metrics:
+  sinopec_monthly_listing:
+    price_type: sinopec_sh
+    default_products: [isoprene, piperylene, dcpd, styrene]
+    change_days_default: 30
+    skip_rag: true
+    skip_llm_finalizer: true
+    markers_zh: [中石化, 上海石化, 石化挂牌, 挂牌价, 挂牌, 月度挂牌, 是否已公布, 变动方向]
+    markers_en: [sinopec, listing price, listed price, monthly listing, released, how has it changed]
+  east_china_spot:
+    price_type: east_china
+    change_days_default: 7
+    skip_rag: true
+    skip_llm_finalizer: true
+    markers_zh: [主流价格, 现价, 报价, 最新价, 市场价, 行情, 周环比, 环比]
+    markers_en: [mainstream price, current price, latest price, market price, wow, mom]
+  market_multi_product_wow:
+    price_type: east_china
+    change_days_default: 7
+    skip_rag: false
+    skip_llm_finalizer: false
+    markers_zh: [和, 及, 与, 分别, 周环比, 主流价格变化]
+    markers_en: [and, versus, compare, week over week, price change]
+  erp_sales_summary:
+    capability_id: erp_sales_summary
+    markers_zh: [销售情况, 销售额, 销量, 销售数据]
+    markers_en: [sales revenue, sales data, volume, sales summary]
+  erp_order_details:
+    capability_id: erp_order_details
+    markers_zh: [订单明细, 订单详情, 销售订单明细]
+    markers_en: [order detail, order details, sales order detail]
+  database_catalog:
+    capability_id: null
+    discovery: true
+    markers_zh: [哪些数据, 什么数据, 哪些表, 能直接回答, 数据覆盖, 能力注册]
+    markers_en: [what data, which tables, can answer, coverage, capability]
+
+# Labels that mean "market database" (not ERP catalog discovery)
+market_data_source_labels_zh:
+  - 中国市场数据库
+  - 市场数据库
+  - market_prices
+market_data_source_labels_en:
+  - china market database
+  - market database
+  - market_prices

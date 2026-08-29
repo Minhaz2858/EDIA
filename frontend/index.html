@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <script>
+    (function () {
+      var theme = 'light';
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') {
+          theme = saved;
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        }
+      } catch (e) {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.classList.add(theme);
+    })();
+  </script>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>伊斯科智能分析决策系统</title>
+  <script type="module">
+    if (import.meta.hot?.on) {
+      import.meta.hot.on('vite:error', (error) => {
+        if (error.err) {
+          console.error(
+            [error.err.message, error.err.frame].filter(Boolean).join('\n'),
+          )
+        }
+      })
+    }
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
+</html>

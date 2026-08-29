@@ -1,0 +1,81 @@
+# ── Environment / Secrets ──────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Python ─────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+*.so
+
+# ── Virtual environments (local installs, not source) ─────────────────
+.conda/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ── IDE / OS junk ──────────────────────────────────────────────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ── Runtime data (user submissions — private) ─────────────────────────
+record/
+chroma_db/
+
+# ── Local services (full Elasticsearch install, not source) ───────────
+elasticsearch/
+
+# ── Third-party NLP data (licensed, not redistributable) ──────────────
+nltk_data/
+LIWC/
+NRC/
+
+# ── Trained model artifacts (large binaries — regenerate via training/) ─
+models/roberta_es/
+models/roberta_is/
+models/*.joblib
+models/*.json
+*.joblib
+uncased_L-12_H-768_A-12/
+bert-master/
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.pickle
+*.zip
+
+# ── Logs ───────────────────────────────────────────────────────────────
+*.log
+
+# ── Media & vendored assets (source-only repo policy) ─────────────────
+static/images/
+static/fonts/
+static/rs-plugin/
+static/font-awesome-4.0.3/
+static/js/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.ico
+*.svg
+*.psd
+*.swf
+*.vtt
+*.woff
+*.woff2
+*.ttf
+*.eot
+*.otf

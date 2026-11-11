@@ -63,7 +63,7 @@ Smoke tests after boot:
 api/            Vercel serverless entry (wraps backend.server)
 backend/
   src/
-    hermes/         Agent runtime: intent planner, skills, execution, streaming
+    agent/         Agent runtime: intent planner, skills, execution, streaming
     nlu/            Intent parsing, context validation, LLM service
     planner/        Query planning, schema registry, prerenderer
     rag/            Hybrid retrieval, report chunker/ingester, vector store
